@@ -8,3 +8,13 @@ Features :
        <li>Has Facility to upload and store Document of Rentar</li>
        <li>many more small features...</li>
 </ul>
+
+Technology used: mean stack application 
+<ul>
+<li>Node.js
+</li>
+<li>Angular Js 
+</li>
+<li>Mongo DB 
+</li>
+</ul>
