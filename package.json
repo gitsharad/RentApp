@@ -1,0 +1,25 @@
+{
+  "name": "rentapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "corp": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "^0.3.2",
+    "passport-jwt": "*"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.0.4"
+  }
+}
