@@ -1,0 +1,19 @@
+<div id="rent_logindiv">
+<form class="rent_loginfrm" (submit)="onloginsubmit()" method="post"> 
+  <md-input-container class="rent_logintitle">
+    <input mdInput placeholder="" disabled value="Login">
+  </md-input-container>
+  <br/>
+ 
+  <md-input-container class="example-full-width">
+      <input mdInput [(ngModel)]="username" name="username" placeholder="UserName" type="text">
+</md-input-container>
+<br/>
+
+<md-input-container class="example-full-width">
+      <input mdInput [(ngModel)]="password" name="password" placeholder="Password" type="password">
+</md-input-container>
+<br/>
+<input type="submit" class="btn btn-warning" name="login" value="Login">
+</form>
+</div>
