@@ -1,3 +1,11 @@
-<p>
-  dashboard works!
-</p>
+<section>
+   <div class="row">
+     <div class="col-sm-2 col-lg-1 col-xs-3" *ngFor="let  rmodule of rent_modules">
+          <div class="rblocks">
+            <i class="{{rmodule.module_icon}}"></i>
+            <h6 *ngIf="authservice.logged_in()"  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="[rmodule.routerlink]">
+             {{rmodule.module_name}}</a></h6>
+            </div>
+     </div>
+   </div>
+</section>

@@ -9,7 +9,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  //logintoken=localStorage.getItem("id_token");
+  //alert(logintoken);
+  
   constructor(private flashmsg: FlashMessagesService,
               private authservice: AuthService,private router:Router) { }
 
@@ -19,6 +21,8 @@ export class NavbarComponent implements OnInit {
           this.authservice.logout();
           this.flashmsg.show("You Are Log Out",{cssClass:'alert-success',timeout:3000});
           this.router.navigate(['login']);
+          //this.logintoken=null;
           return false;
         }
+       
 }

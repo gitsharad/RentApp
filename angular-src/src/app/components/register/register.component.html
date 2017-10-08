@@ -1,31 +1,31 @@
 
 <div id="register_div" class="row">
 <form class="example-form" (submit)="onregistersubmit()">
-  <md-input-container class="example-full-width">
-    <input mdInput placeholder="" disabled value="Add New App User ">
-  </md-input-container>
+  <mat-form-field class="example-full-width">
+    <input  matInput placeholder="" disabled value="Add New App User ">
+  </mat-form-field >
   <br/>
 
-  <md-input-container class="example-full-width">
-      <input mdInput placeholder="First name" [(ngModel)]="fname" name="fname" type="text">
-  </md-input-container>
-    <md-input-container class="example-full-width">
-      <input mdInput [(ngModel)]="lname" placeholder="Last Name" name="lname" type="text">
-    </md-input-container>
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="First name" [(ngModel)]="fname" name="fname" type="text">
+  </mat-form-field >
+  <mat-form-field class="example-full-width">
+      <input matInput [(ngModel)]="lname" placeholder="Last Name" name="lname" type="text">
+  </mat-form-field >
  <br/>
 
-<md-input-container class="example-full-width">
-      <input mdInput [(ngModel)]="username" name="username" placeholder="UserName" type="text">
-</md-input-container> 
+<mat-form-field class="example-full-width">
+      <input matInput [(ngModel)]="username" name="username" placeholder="UserName" type="text">
+</mat-form-field > 
 <br/>
-<md-input-container class="example-full-width">
-      <input mdInput [(ngModel)]="email" name="email" placeholder="Email" type="email">
-</md-input-container>
+<mat-form-field class="example-full-width">
+      <input matInput [(ngModel)]="email" name="email" placeholder="Email" type="email">
+</mat-form-field>
 <br/>
-<md-input-container class="example-full-width">
-      <input mdInput [(ngModel)]="password" name="password" placeholder="Password" type="password">
-</md-input-container>
-<br/>
+<mat-form-field class="example-full-width">
+      <input matInput [(ngModel)]="password" name="password" placeholder="Password" type="password">
+</mat-form-field >
+<br/> 
   <!-- <a md-raised-button routerLink="." class="btn btn-success" type="submit">Register</a>-->
 <input type="submit" class="btn btn-warning" name="register" value="Register">
 <input type="reset" class="btn btn-warning" name="register" value="Reset">

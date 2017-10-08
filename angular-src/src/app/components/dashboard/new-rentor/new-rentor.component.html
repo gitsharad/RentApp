@@ -1,0 +1,17 @@
+<section>
+  <div class="container">
+    <form #rentfrm="ngForm" (submit)="save(rentfrm.value, rentfrm.valid)" class="rentfrm" novalidate>
+      <!-- we will place our fields here -->
+     <mat-form-field class="example-full-width">
+        <input matInput placeholder="" disabled value="Add New Rentor ">
+      </mat-form-field>
+      <br/>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="First Name" [(ngModel)]="rinfo.fname" name="fname" type="text" required>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Last Name" [(ngModel)]="rinfo.lname" name="lname" type="text" required>
+      </mat-form-field>  
+    </form>
+  </div>
+</section>

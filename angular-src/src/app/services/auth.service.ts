@@ -6,22 +6,25 @@ import 'rxjs/add/operator/map';
 export class AuthService { 
   authtoken:any;
   user:any;
-
+  service_url: string = "";
+  //service_url: string = "http://localhost:3000/";
   constructor(private http:Http) { }
   getProfile(){
+   //console.log("i am get called");
+  // debugger;
      this.loadToken();
-     console.log("userjlsjfls",this.authtoken);
-     let headers=new Headers();
+     let headers=new Headers(); 
      headers.append('Authorization',this.authtoken); 
      headers.append('content-type','application/json');
-     return this.http.get('http://localhost:3000/users/profile',{headers:headers})
-     .map(res=>res.json());
+     //headers.append('WWW-Authenticate',this.authtoken);
+     return this.http.get(this.service_url+'users/profile',{headers:headers})
+     .map(res=>res.json());  
   }
   registerUser(user){ 
     //console.log("userjlsjfls",user);
      let headers=new Headers();
      headers.append('content-type','application/json');
-     return this.http.post('http://localhost:3000/users/register',user,{headers:headers})
+     return this.http.post(this.service_url+'/users/register',user,{headers:headers})
      .map(res=>res.json());
   }
   
@@ -29,21 +32,32 @@ export class AuthService {
     //console.log("sdflkjdlksdjflksjdfljsd;lfjs;lfj;s",user);
       let headers=new Headers();
      headers.append('content-type','application/json');
-     return this.http.post('http://localhost:3000/users/authenticate',user,{headers:headers})
+     return this.http.post(this.service_url+'users/authenticate',user,{headers:headers})
      .map(res=>res.json());
   }
   storeUserData(token,user){
+    
     //console.log("store user data funciton");
     localStorage.setItem('id_token',token);
     localStorage.setItem('user',JSON.stringify(user));
     this.authtoken=token;
     this.user=user;
-    console.log("store user data funciton",localStorage.getItem('id_token'));
+    //console.log("store user data funciton",localStorage.getItem('id_token'));
   }
   logout(){
     this.authtoken=null;
     this.user=null;
     localStorage.clear();
+  }
+
+  logged_in(){
+    
+    if(localStorage.getItem("id_token")){
+      return true;
+    }else {
+      return false;
+    }
+
   }
 
   loadToken(){

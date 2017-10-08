@@ -1,19 +1,19 @@
 <div id="rent_logindiv">
 <form class="rent_loginfrm" (submit)="onloginsubmit()" method="post"> 
-  <md-input-container class="rent_logintitle">
-    <input mdInput placeholder="" disabled value="Login">
-  </md-input-container>
+  <mat-form-field  class="rent_logintitle">
+    <input matInput placeholder="" disabled value="Login">
+  </mat-form-field >
   <br/>
  
-  <md-input-container class="example-full-width">
-      <input mdInput [(ngModel)]="username" name="username" placeholder="UserName" type="text">
-</md-input-container>
+  <mat-form-field  class="example-full-width">
+      <input  matInput [(ngModel)]="username" name="username" placeholder="UserName" type="text">
+</mat-form-field >
 <br/>
 
-<md-input-container class="example-full-width">
-      <input mdInput [(ngModel)]="password" name="password" placeholder="Password" type="password">
-</md-input-container>
+<mat-form-field  class="example-full-width">
+      <input  matInput [(ngModel)]="password" name="password" placeholder="Password" type="password">
+</mat-form-field >
 <br/>
-<input type="submit" class="btn btn-warning" name="login" value="Login">
+<input  type="submit" class="btn btn-warning" name="login" value="Login">
 </form>
 </div>

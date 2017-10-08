@@ -1,10 +1,11 @@
 const express = require('express');
 const router= express.Router();
-const passport = require('passport-jwt');
-const passport2 = require("passport");
+//const passport2 = require('passport-jwt');
+const passport = require("passport");
 const jwt = require('jsonwebtoken');
 const User = require('../models/users');
 const config= require('../config/database');
+
 //Register 
 //console.log("passport2",passport2);
 router.post("/register",(req,res,next) => {
@@ -30,9 +31,9 @@ router.post("/register",(req,res,next) => {
 //Autheticate 
 router.post("/authenticate",(req,res,next) => {
  
- const username =  req.body.username;
+ const username = req.body.username;
  const password = req.body.password;
-
+ 
  User.getUserByName(username,(err,user)=>{
      if(err) throw err;
 
@@ -46,28 +47,30 @@ router.post("/authenticate",(req,res,next) => {
              })
              res.json({
                  success:true ,
-                 token: 'JWT'+token,
-                 user:{
+                 token: 'JWT '+token,
+                 user:{ 
                      id:user._id,
                      name:user.name,
                      username:user.username,
                      email:user.email
-                 }
+                 },
+                 msg:"Successfully Login"
              })
          }else{
              return res.json({success:false,msg:"Wrong Password"});
          }
      })
- })
+ }) 
 
 });
 
 //Profile 
-router.get("/profile",passport2.authenticate('jwt',{sessin:false}),(req,res,next) => {
- 
- res.json({user: req.user});
+router.get("/profile",passport.authenticate('jwt',{session:false}),(req,res,next) => {
+  
+    console.log("reqq",req.user);  
+    res.json({user: req.user}); 
 
 });
 
 
-module.exports= router; 
+module.exports= router;     

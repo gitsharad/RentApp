@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {FlashMessagesService} from 'angular2-flash-messages';
 import {Router} from '@angular/router';
+import {MatInputModule} from '@angular/material';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

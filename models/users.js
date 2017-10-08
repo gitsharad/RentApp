@@ -39,12 +39,11 @@ module.exports.getUserByName=function(username,callback){
 
 module.exports.addUser=function(newUser,callback){
  
- console.log("HIIIIIDID");
+ //console.log("HIIIIIDID");
   bcrypt.genSalt(10, function(err, salt) {
     bcrypt.hash(newUser.password, salt, function(err, hash) {
         // Store hash in your password DB.  
         newUser.password=hash; 
-       
         newUser.save(callback);
     });
 });

@@ -13,10 +13,11 @@
     "bcryptjs": "*",
     "body-parser": "*",
     "corp": "*",
+    "cors": "*",
     "express": "*",
     "jsonwebtoken": "*",
     "mongoose": "*",
-    "passport": "^0.3.2",
+    "passport": "*",
     "passport-jwt": "*"
   },
   "devDependencies": {

@@ -9,23 +9,18 @@ mongoose.connect(config.database);
 const cors= require("cors");
 const users = require('./routes/users');
 const app = express();  
-const port = 3000;
-
-//console.log("config store : ",config);
-//console.log("express app: ",app);
-//console.log("path: ",path);
-//console.log("bodyparser: ",bodyparser);
+const port = process.env.port || 3000; 
 
 //passport Middleware 
 app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passport')(passport);
-app.use(cors());
-
+  app.use(cors());
 //body parser middlewear
 app.use(bodyparser.json());
 
 app.use(express.static(path.join(__dirname,'public')));
+//console.log("express.static(path.join(__dirname,'public'))",path.join(__dirname,'public'));
 
 app.use('/users',users);
 app.get("/",(req,res)=>{
@@ -34,9 +29,7 @@ app.get("/",(req,res)=>{
 });
 
 app.listen(port,()=>{
-  
-     console.log("server started on port "+port)
- 
+     console.log("server started on port "+port);
 });
 
 //Database Connection

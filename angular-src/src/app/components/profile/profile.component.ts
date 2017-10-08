@@ -15,12 +15,12 @@ user:object;
   ngOnInit() {
     
     this.AuthService.getProfile().subscribe(profile =>{
-      this.user=profile.user;
-    },
-    err =>{
-      console.log('profile observable error',err);
+      this.user=profile.user; 
+    },  
+   err =>{
+      //console.log('profile observable error',err);
       return false;
-    }
+    } 
     );
 }
 

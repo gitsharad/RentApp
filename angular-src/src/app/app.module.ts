@@ -8,24 +8,27 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { MaterialModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlashMessagesModule} from 'angular2-flash-messages';
-
-
 import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
+import {AuthGuard} from './guard/auth.guard';
+import { NewRentorComponent } from './components/dashboard/new-rentor/new-rentor.component';
+import { MonthlyComponent } from './components/dashboard/monthly/monthly.component';
 
 
 const appRoutes : Routes = [
   {path:'',component:HomeComponent},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
-  {path:'dashboard',component:DashboardComponent},
-  {path:'profile',component:ProfileComponent}
+  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
+  {path:'profile',component:ProfileComponent,canActivate:[AuthGuard]},
+  {path:'newrentor',component:NewRentorComponent,canActivate:[AuthGuard]},
+  {path:'monthlybilling',component:MonthlyComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({
@@ -36,20 +39,23 @@ const appRoutes : Routes = [
     DashboardComponent,
     ProfileComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    NewRentorComponent,
+    MonthlyComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    MaterialModule,
+    MatInputModule,
     BrowserAnimationsModule,
     FlashMessagesModule
   ],
   providers: [
    ValidateService,
-   AuthService
+   AuthService,
+   AuthGuard
   ],
   bootstrap: [AppComponent]
 })
